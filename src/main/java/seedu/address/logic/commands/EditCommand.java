@@ -104,7 +104,8 @@ public class EditCommand extends Command {
         Set<Tag> updatedTags = editPersonDescriptor.getTags().orElse(personToEdit.getTags());
         Remark updatedRemark = personToEdit.getRemark(); // edit command does not allow editing remarks
         //TODO
-        return new Person(updatedName, updatedStudentId, updatedEmail, updatedAddress, updatedTags, new Year(""), updatedRemark);
+        return new Person(updatedName, updatedStudentId, updatedEmail, updatedAddress, updatedTags,
+                new Year(""), updatedRemark);
     }
 
     @Override
