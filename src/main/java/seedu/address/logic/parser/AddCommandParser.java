@@ -17,6 +17,7 @@ import seedu.address.model.person.Email;
 import seedu.address.model.person.Major;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
+import seedu.address.model.person.Remark;
 import seedu.address.model.person.StudentId;
 import seedu.address.model.person.Year;
 import seedu.address.model.tag.Tag;
@@ -49,8 +50,9 @@ public class AddCommandParser implements Parser<AddCommand> {
         Major address = ParserUtil.parseAddress(argMultimap.getValue(PREFIX_MAJOR).get());
         Set<Tag> tagList = ParserUtil.parseTags(argMultimap.getAllValues(PREFIX_TAG));
         Year year = ParserUtil.parseYear(argMultimap.getValue(PREFIX_YEAR).get());
+        Remark remark = new Remark(""); // add command does not allow adding remarks straight away
 
-        Person person = new Person(name, studentId, email, address, tagList, year);
+        Person person = new Person(name, studentId, email, address, tagList, year, remark);
 
         return new AddCommand(person);
     }

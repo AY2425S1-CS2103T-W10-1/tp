@@ -7,6 +7,7 @@ import seedu.address.model.person.Email;
 import seedu.address.model.person.Major;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
+import seedu.address.model.person.Remark;
 import seedu.address.model.person.StudentId;
 import seedu.address.model.person.Year;
 import seedu.address.model.tag.Tag;
@@ -22,6 +23,7 @@ public class PersonBuilder {
     public static final String DEFAULT_EMAIL = "e1234567@u.nus.edu";
     public static final String DEFAULT_MAJOR = "Computer Science";
     public static final String DEFAULT_YEAR = "1";
+    public static final String DEFAULT_REMARK = "";
 
 
     private Name name;
@@ -30,6 +32,7 @@ public class PersonBuilder {
     private Major major;
     private Year year;
     private Set<Tag> tags;
+    private Remark remark;
 
     /**
      * Creates a {@code PersonBuilder} with the default details.
@@ -40,6 +43,7 @@ public class PersonBuilder {
         email = new Email(DEFAULT_EMAIL);
         major = new Major(DEFAULT_MAJOR);
         year = new Year(DEFAULT_YEAR);
+        remark = new Remark(DEFAULT_REMARK);
         tags = new HashSet<>();
     }
 
@@ -52,6 +56,7 @@ public class PersonBuilder {
         email = personToCopy.getEmail();
         major = personToCopy.getMajor();
         year = personToCopy.getYear();
+        remark = personToCopy.getRemark();
         tags = new HashSet<>(personToCopy.getTags());
     }
 
@@ -103,8 +108,13 @@ public class PersonBuilder {
         return this;
     }
 
+    public PersonBuilder withRemark(String remark) {
+        this.remark = new Remark(remark);
+        return this;
+    }
+
     public Person build() {
-        return new Person(name, studentId, email, major, tags, year);
+        return new Person(name, studentId, email, major, tags, year, remark);
     }
 
 }

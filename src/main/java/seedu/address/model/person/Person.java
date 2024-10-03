@@ -24,18 +24,20 @@ public class Person {
     // Data fields
     private final Major major;
     private final Year year;
+    private final Remark remark;
     private final Set<Tag> tags = new HashSet<>();
 
     /**
      * Every field must be present and not null.
      */
-    public Person(Name name, StudentId studentId, Email email, Major major, Set<Tag> tags, Year year) {
+    public Person(Name name, StudentId studentId, Email email, Major major, Set<Tag> tags, Year year, Remark remark) {
         requireAllNonNull(name, studentId, email, major, tags, year);
         this.name = name;
         this.studentId = studentId;
         this.email = email;
         this.major = major;
         this.year = year;
+        this.remark = remark;
         this.tags.addAll(tags);
     }
 
@@ -57,6 +59,10 @@ public class Person {
 
     public Year getYear() {
         return year;
+    }
+
+    public Remark getRemark() {
+        return remark;
     }
 
     /**

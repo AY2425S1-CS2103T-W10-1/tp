@@ -14,6 +14,7 @@ import seedu.address.model.person.Email;
 import seedu.address.model.person.Major;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
+import seedu.address.model.person.Remark;
 import seedu.address.model.person.StudentId;
 import seedu.address.model.person.Year;
 import seedu.address.model.tag.Tag;
@@ -30,6 +31,7 @@ class JsonAdaptedPerson {
     private final String email;
     private final String major;
     private final String year;
+    private final String remark;
     private final List<JsonAdaptedTag> tags = new ArrayList<>();
 
     /**
@@ -38,12 +40,13 @@ class JsonAdaptedPerson {
     @JsonCreator
     public JsonAdaptedPerson(@JsonProperty("name") String name, @JsonProperty("studentId") String studentId,
             @JsonProperty("email") String email, @JsonProperty("major") String major, @JsonProperty("year") String year,
-            @JsonProperty("tags") List<JsonAdaptedTag> tags) {
+           @JsonProperty("tags") List<JsonAdaptedTag> tags,  @JsonProperty("remark") String remark) {
         this.name = name;
         this.studentId = studentId;
         this.email = email;
         this.major = major;
         this.year = year;
+        this.remark = remark;
         if (tags != null) {
             this.tags.addAll(tags);
         }
@@ -58,6 +61,7 @@ class JsonAdaptedPerson {
         email = source.getEmail().value;
         major = source.getMajor().value;
         year = source.getYear().value;
+        remark = source.getRemark().value;
         tags.addAll(source.getTags().stream()
                 .map(JsonAdaptedTag::new)
                 .collect(Collectors.toList()));
@@ -112,8 +116,13 @@ class JsonAdaptedPerson {
         }
         final Year modelYear = new Year(year);
 
+        if (remark == null) {
+            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, Remark.class.getSimpleName()));
+        }
+        final Remark modelRemark = new Remark(remark);
+
         final Set<Tag> modelTags = new HashSet<>(personTags);
-        return new Person(modelName, modelStudentId, modelEmail, modelAddress, modelTags, modelYear);
+        return new Person(modelName, modelStudentId, modelEmail, modelAddress, modelTags, modelYear, modelRemark);
     }
 
 }
