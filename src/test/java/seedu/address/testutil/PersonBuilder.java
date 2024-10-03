@@ -108,6 +108,9 @@ public class PersonBuilder {
         return this;
     }
 
+    /**
+     * WithRemark function.
+     */
     public PersonBuilder withRemark(String remark) {
         this.remark = new Remark(remark);
         return this;
