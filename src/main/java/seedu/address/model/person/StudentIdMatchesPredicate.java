@@ -1,7 +1,5 @@
 package seedu.address.model.person;
 
-//public class StudentIdMatchesPredicate {
-//}
 import java.util.function.Predicate;
 
 /**
