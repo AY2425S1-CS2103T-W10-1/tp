@@ -44,6 +44,8 @@ public class PersonCard extends UiPart<Region> {
     @FXML
     private FlowPane groups;
     @FXML
+    private Label remark;
+    @FXML
     private VBox fields;
     @FXML
     private Label comment;
@@ -60,6 +62,7 @@ public class PersonCard extends UiPart<Region> {
         major.setText(person.getMajor().value);
         year.setText(person.getYear().value);
         email.setText(person.getEmail().value);
+        remark.setText(person.getRemark().value);
         person.getGroups().stream()
                 .sorted(Comparator.comparing(group -> group.groupName))
                 .forEach(group -> groups.getChildren().add(new Label(group.groupName)));

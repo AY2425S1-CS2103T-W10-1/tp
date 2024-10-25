@@ -7,7 +7,8 @@
     "major" : "Computer Science",
     "year" : "2",
     "groups": [ ],
-    "comment": ""
+    "comment": "",
+    "remark": ""
   }, {
     "name" : "Benson Meier",
     "studentId" : "A0000000P",
@@ -15,7 +16,8 @@
     "major" : "Mechanical Engineering",
     "year" : "1",
     "groups": [ ],
-    "comment": ""
+    "comment": "",
+    "remark": ""
   }, {
     "name" : "Carl Kurz",
     "studentId" : "A0100000P",
@@ -23,7 +25,8 @@
     "major" : "Business",
     "year" : "3",
     "groups": [ ],
-    "comment": ""
+    "comment": "",
+    "remark": ""
   }, {
     "name" : "Daniel Meier",
     "studentId" : "A0005000P",
@@ -31,7 +34,8 @@
     "major" : "English Literature",
     "year" : "5",
     "groups": [ ],
-    "comment": ""
+    "comment": "",
+    "remark": ""
   }, {
     "name" : "Elle Meyer",
     "studentId" : "A0004000P",
@@ -39,7 +43,8 @@
     "major" : "China Studies",
     "year" : "2",
     "groups": [ ],
-    "comment": ""
+    "comment": "",
+    "remark": ""
   }, {
     "name" : "Fiona Kunz",
     "studentId" : "A0200000P",
@@ -47,7 +52,8 @@
     "major" : "Electrical Engineering",
     "year" : "1",
     "groups": [ ],
-    "comment": ""
+    "comment": "",
+    "remark": ""
   }, {
     "name" : "George Best",
     "studentId" : "A1000000P",
@@ -55,6 +61,7 @@
     "major" : "Religious Studies",
     "year" : "1",
     "groups": [ ],
-    "comment": ""
+    "comment": "",
+    "remark": ""
   } ]
 }

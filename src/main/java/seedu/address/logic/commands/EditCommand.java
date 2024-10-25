@@ -28,6 +28,7 @@ import seedu.address.model.person.Email;
 import seedu.address.model.person.Major;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
+import seedu.address.model.person.Remark;
 import seedu.address.model.person.StudentId;
 import seedu.address.model.person.Year;
 
@@ -109,7 +110,7 @@ public class EditCommand extends Command {
         Year updatedYear = editPersonDescriptor.getYear().orElse(personToEdit.getYear());
         Comment updatedComment = editPersonDescriptor.getComment().orElse(personToEdit.getComment());
         return new Person(updatedName, updatedStudentId, updatedEmail, updatedAddress,
-                updatedGroups, updatedYear, updatedComment);
+                updatedGroups, updatedYear, updatedComment, new Remark(""));
     }
 
     @Override

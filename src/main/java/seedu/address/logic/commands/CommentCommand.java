@@ -58,7 +58,8 @@ public class CommentCommand extends Command {
         Person personToEdit = lastShownList.get(index.getZeroBased());
         Person editedPerson = new Person(
                 personToEdit.getName(), personToEdit.getStudentId(), personToEdit.getEmail(),
-                personToEdit.getMajor(), personToEdit.getGroups(), personToEdit.getYear(), comment);
+                personToEdit.getMajor(), personToEdit.getGroups(), personToEdit.getYear(), comment,
+                personToEdit.getRemark());
 
         model.setPerson(personToEdit, editedPerson);
         model.updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);

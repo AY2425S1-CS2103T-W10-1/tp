@@ -19,6 +19,7 @@ import seedu.address.model.person.Email;
 import seedu.address.model.person.Major;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
+import seedu.address.model.person.Remark;
 import seedu.address.model.person.StudentId;
 import seedu.address.model.person.Year;
 
@@ -67,7 +68,7 @@ public class AddCommandParser implements Parser<AddCommand> {
 
         Comment comment = new Comment("");
 
-        Person person = new Person(name, studentId, email, major, groupList, year, comment);
+        Person person = new Person(name, studentId, email, major, groupList, year, comment, new Remark(""));
 
         return new AddCommand(person);
     }

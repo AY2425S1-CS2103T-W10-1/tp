@@ -6,7 +6,8 @@
     "major" : "Computer Science",
     "year" : "2",
     "groups": [ ],
-    "comment": ""
+    "comment": "",
+    "remark": ""
   }, {
     "name" : "Alice Pauline",
     "studentId" : "A1234567P",
@@ -14,6 +15,7 @@
     "major" : "Computer Science",
     "year" : "2",
     "groups": [ ],
-    "comment": ""
+    "comment": "",
+    "remark": ""
   } ]
 }

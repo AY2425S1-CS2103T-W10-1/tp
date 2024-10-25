@@ -16,6 +16,7 @@ import seedu.address.model.person.Email;
 import seedu.address.model.person.Major;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
+import seedu.address.model.person.Remark;
 import seedu.address.model.person.StudentId;
 import seedu.address.model.person.Year;
 
@@ -33,6 +34,7 @@ class JsonAdaptedPerson {
     private final String year;
     private final List<JsonAdaptedGroup> groups = new ArrayList<>();
     private final String comment;
+    private final String remark;
 
     /**
      * Constructs a {@code JsonAdaptedPerson} with the given person details.
@@ -40,13 +42,15 @@ class JsonAdaptedPerson {
     @JsonCreator
     public JsonAdaptedPerson(@JsonProperty("name") String name, @JsonProperty("studentId") String studentId,
             @JsonProperty("email") String email, @JsonProperty("major") String major, @JsonProperty("year") String year,
-            @JsonProperty("groups") List<JsonAdaptedGroup> groups, @JsonProperty("comment") String comment) {
+            @JsonProperty("groups") List<JsonAdaptedGroup> groups, @JsonProperty("comment") String comment,
+                             @JsonProperty("remark") String remark) {
         this.name = name;
         this.studentId = studentId;
         this.email = email;
         this.major = major;
         this.year = year;
         this.comment = comment;
+        this.remark = remark;
         if (groups != null) {
             this.groups.addAll(groups);
         }
@@ -65,6 +69,7 @@ class JsonAdaptedPerson {
                 .map(JsonAdaptedGroup::new)
                 .collect(Collectors.toList()));
         comment = source.getComment().value;
+        remark = source.getRemark().value;
     }
 
     /**
@@ -140,10 +145,17 @@ class JsonAdaptedPerson {
         if (comment == null) {
             throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, Comment.class.getSimpleName()));
         }
+
+        if (remark == null) {
+            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, Remark.class.getSimpleName()));
+        }
+        final Remark modelRemark = new Remark(remark);
+
         final Comment modelComment = new Comment(comment);
 
         final Set<Group> modelGroups = new HashSet<>(personGroups);
-        return new Person(modelName, modelStudentId, modelEmail, modelMajor, modelGroups, modelYear, modelComment);
+        return new Person(modelName, modelStudentId, modelEmail, modelMajor, modelGroups, modelYear, modelComment,
+                modelRemark);
     }
 
 }

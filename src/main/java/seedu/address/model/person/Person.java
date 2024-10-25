@@ -28,11 +28,13 @@ public class Person {
     private final Set<Group> groups = new HashSet<>();
     private final Comment comment;
 
+    private final Remark remark;
+
     /**
      * Every field must be present and not null.
      */
     public Person(Name name, StudentId studentId, Email email, Major major, Set<Group> groups,
-                  Year year, Comment comment) {
+                  Year year, Comment comment, Remark remark) {
         requireAllNonNull(name, studentId, email, major, groups, year, comment);
         this.name = name;
         this.studentId = studentId;
@@ -41,6 +43,7 @@ public class Person {
         this.year = year;
         this.groups.addAll(groups);
         this.comment = comment;
+        this.remark = remark;
     }
 
     public Name getName() {
@@ -66,6 +69,10 @@ public class Person {
     public Comment getComment() {
         return comment;
     }
+    public Remark getRemark() {
+        return remark;
+    }
+
 
     /**
      * Returns an immutable tag set, which throws {@code UnsupportedOperationException}
