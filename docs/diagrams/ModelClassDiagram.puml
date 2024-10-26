@@ -41,8 +41,8 @@ UniquePersonList --> "~* all" Person
 Person *--> Name
 Person *--> Phone
 Person *--> Email
-Person *--> Address
 Person *--> Comment
+Person *--> Address
 Person *--> "*" Tag
 
 Person -[hidden]up--> I
